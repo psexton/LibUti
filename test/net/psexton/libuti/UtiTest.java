@@ -4,10 +4,6 @@
  */
 package net.psexton.libuti;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -16,38 +12,17 @@ import static org.junit.Assert.*;
  * @author PSexton
  */
 public class UtiTest {
-    
-    public UtiTest() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
 
     /**
      * Test of toString method, of class Uti.
      */
     @Test
     public void testToString() {
-        System.out.println("toString");
-        Uti instance = null;
-        String expResult = "";
+        Uti instance = new Uti("foo");
+        String expResult = "foo";
         String result = instance.toString();
+        
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -55,14 +30,20 @@ public class UtiTest {
      */
     @Test
     public void testEquals() {
-        System.out.println("equals");
-        Object obj = null;
-        Uti instance = null;
-        boolean expResult = false;
-        boolean result = instance.equals(obj);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        // Equal objects should return true.
+        // Nonequal objects should produce false.
+        Uti instance = new Uti("foo");
+        
+        Uti equalUti = new Uti("foo");
+        Uti nonequalUti = new Uti("bar");
+        Object nullObj = null;
+        String nonUti = "foo";
+        
+        assertTrue(instance.equals(instance)); // matches self
+        assertTrue(instance.equals(equalUti)); // matches equal Uti
+        assertFalse(instance.equals(nonequalUti)); // does not match nonequal Uti
+        assertFalse(instance.equals(nullObj)); // gracefully handles null
+        assertFalse(instance.equals(nonUti)); // gracefully handle other classes
     }
 
     /**
@@ -70,12 +51,13 @@ public class UtiTest {
      */
     @Test
     public void testHashCode() {
-        System.out.println("hashCode");
-        Uti instance = null;
-        int expResult = 0;
-        int result = instance.hashCode();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        // Equal objects should produce equal hashes.
+        // Nonequal objects should produce nonequal hashes.
+        
+        Uti instance1a = new Uti("foo");
+        Uti instance1b = new Uti("foo");
+        Uti instance2 = new Uti("bar");
+        assertEquals(instance1a.hashCode(), instance1b.hashCode());
+        assertFalse(instance1a.hashCode() == instance2.hashCode());
     }
 }

@@ -4,11 +4,6 @@
  */
 package net.psexton.libuti;
 
-import java.io.File;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -18,37 +13,11 @@ import static org.junit.Assert.*;
  */
 public class UtiBuilderTest {
     
-    public UtiBuilderTest() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
     /**
      * Test of fromFile method, of class UtiBuilder.
      */
     @Test
     public void testFromFile() {
-        System.out.println("fromFile");
-        File file = null;
-        UtiBuilder instance = new UtiBuilder();
-        Uti expResult = null;
-        Uti result = instance.fromFile(file);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -56,29 +25,41 @@ public class UtiBuilderTest {
      * Test of fromSuffix method, of class UtiBuilder.
      */
     @Test
-    public void testFromSuffix() {
-        System.out.println("fromSuffix");
-        String fileSuffix = "";
+    public void testFromSuffixMatches() {
+        String fileSuffix = "docx";
         UtiBuilder instance = new UtiBuilder();
-        Uti expResult = null;
+        Uti expResult = new Uti("com.microsoft.word.docx");
         Uti result = instance.fromSuffix(fileSuffix);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    }
+    
+    @Test
+    public void testFromSuffixDoesNotMatch() {
+        String fileSuffix = "dog";
+        UtiBuilder instance = new UtiBuilder();
+        Uti expResult = new Uti("dyn." + fileSuffix);
+        Uti result = instance.fromSuffix(fileSuffix);
+        assertEquals(expResult, result);
     }
 
     /**
      * Test of fromString method, of class UtiBuilder.
      */
     @Test
-    public void testFromString() {
-        System.out.println("fromString");
-        String utiName = "";
+    public void testFromStringMatches() {
+        String utiName = "com.microsoft.word.docx";
+        UtiBuilder instance = new UtiBuilder();
+        Uti expResult = new Uti(utiName);
+        Uti result = instance.fromString(utiName);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testFromStringDoesNotMatch() {
+        String utiName = "this.is.not.a.uti";
         UtiBuilder instance = new UtiBuilder();
         Uti expResult = null;
         Uti result = instance.fromString(utiName);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 }
