@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : MicrosoftOffice.xml
+    Created on : November 22, 2011, 1:30 PM
+    Author     : PSexton
+    Description:
+    
+    UTIs for Microsoft Office documents
+-->
+
+<uti-list>
+    <!-- Non-XML Versions -->
+    
+    <uti>
+        <name>com.microsoft.word.doc</name>
+        <suffix>doc</suffix>
+        <conforms-to>public.data</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>com.microsoft.excel.xls</name>
+        <suffix>xls</suffix>
+        <conforms-to>public.data</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>com.microsoft.powerpoint.ppt</name>
+        <suffix>ppt</suffix>
+        <conforms-to>public.data</conforms-to>
+        <conforms-to>public.presentation</conforms-to>
+    </uti>
+    
+    <!-- Microsoft Office 2007 (XML versions) -->
+    
+    <uti>
+        <name>com.microsoft.word.docx</name>
+        <suffix>docx</suffix>
+        <conforms-to>public.data</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>com.microsoft.excel.xlsx</name>
+        <suffix>xlsx</suffix>
+        <conforms-to>public.data</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>com.microsoft.powerpoint.pptx</name>
+        <suffix>pptx</suffix>
+        <conforms-to>public.data</conforms-to>
+        <conforms-to>public.presentation</conforms-to>
+    </uti>
+    
+</uti-list>

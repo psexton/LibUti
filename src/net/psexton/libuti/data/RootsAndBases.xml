@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : Bases.xml
+    Created on : November 22, 2011, 11:48 AM
+    Author     : PSexton
+    Description:
+    
+    A "root UTI" is one that does not conform to any other type.
+    
+    A "base UTI" is one that conforms to another type, but cannot be instantiated. 
+    (An abstract type). i.e. a branch such as "public.image"
+-->
+
+<uti-list>
+
+    <!-- ROOTS -->
+    <uti> <!-- Base type for the physical hierarchy -->
+        <name>public.item</name>
+    </uti> 
+    <uti> <!-- Base type for all document content -->
+        <name>public.content</name>
+    </uti>
+    
+    <!-- BASES -->
+    <uti>
+        <name>public.composite-content</name>
+        <conforms-to>public.content</conforms-to>
+    </uti>
+    <uti> <!-- Base type for physical byte streams -->
+        <name>public.data</name>
+        <conforms-to>public.item</conforms-to>
+    </uti>
+    <uti> <!-- Base type for directories -->
+        <name>public.directory</name>
+        <conforms-to>public.item</conforms-to>
+    </uti>
+    <uti> <!-- Base type for images -->
+        <name>public.image</name>
+        <conforms-to>public.data</conforms-to>
+        <conforms-to>public.content</conforms-to>
+    </uti>
+    <uti> <!-- Base type for any audiovisual content -->
+        <name>public.audiovisual-content</name>
+        <conforms-to>public.data</conforms-to>
+        <conforms-to>public.content</conforms-to>
+    </uti>
+
+    <!-- OTHER -->
+    
+</uti-list>
