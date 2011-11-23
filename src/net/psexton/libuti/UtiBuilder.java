@@ -27,15 +27,17 @@ public class UtiBuilder {
         
         // Initialize lookup table - maps extensions to UTIs
         utiDb = new UtiDb();
-        try {
-            utiDb.importXmlData(this.getClass().getResourceAsStream("/net/psexton/libuti/data/RootsAndBases.xml"));
-            utiDb.importXmlData(this.getClass().getResourceAsStream("/net/psexton/libuti/data/MicrosoftOffice.xml"));
-        } 
-        catch (IOException ex) {
-            Logger.getLogger(UtiBuilder.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-        catch (JDOMException ex) {
-            Logger.getLogger(UtiBuilder.class.getName()).log(Level.SEVERE, null, ex);
+        String[] dataFiles = {"RootsAndBases", "MicrosoftOffice"};
+        for(String dataFile : dataFiles) {
+            try {
+                utiDb.importXmlData(this.getClass().getResourceAsStream("/net/psexton/libuti/data/" + dataFile + ".xml"));
+            } 
+            catch (IOException ex) {
+                Logger.getLogger(UtiBuilder.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+            catch (JDOMException ex) {
+                Logger.getLogger(UtiBuilder.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
     
