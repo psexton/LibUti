@@ -97,4 +97,19 @@ public class UtiDbTest {
         assertEquals(expResult, result);
     }
     
+    /**
+     * Test of conformsTo method, of class UtiDb.
+     */
+    @Test
+    public void testConformsTo() {
+        // msWord and msExcel should conform to publicData
+        // msWord should not conform to msExcel
+        String msWord = "com.microsoft.word.doc";
+        String msExcel = "com.microsoft.excel.xls";
+        String publicData = "public.data";
+        
+        assertTrue(instance.conformsTo(msWord, publicData));
+        assertTrue(instance.conformsTo(msExcel, publicData));
+        assertFalse(instance.conformsTo(msWord, msExcel));
+    }
 }
