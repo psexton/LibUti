@@ -5,6 +5,7 @@
 package net.psexton.libuti;
 
 import edu.uci.ics.jung.algorithms.layout.CircleLayout;
+import edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath;
 import edu.uci.ics.jung.graph.DirectedSparseGraph;
 import edu.uci.ics.jung.graph.util.EdgeType;
 import edu.uci.ics.jung.visualization.BasicVisualizationServer;
@@ -13,9 +14,8 @@ import java.awt.Dimension;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import org.jdom.Document;
@@ -29,13 +29,11 @@ import org.jdom.input.SAXBuilder;
  */
 class UtiDb {
     private static final Logger logger = Logger.getLogger("net.psexton.libuti");
-    private Set<String> knownUtis;
     private Map<String, String> suffixTable;
     private DirectedSparseGraph<String, String> conformances;
     
     public UtiDb() {
         suffixTable = new HashMap<String, String>();
-        knownUtis = new HashSet<String>();
         conformances = new DirectedSparseGraph<String, String>();
     }
     
@@ -56,7 +54,6 @@ class UtiDb {
             Element uti = (Element) o;
             // UTI's name is in a <name> child
             String name = uti.getChildText("name");
-            knownUtis.add(name); // Add UTI to knownUtis
             conformances.addVertex(name); // Add UTI to graph
             // File suffixes are in <suffix> children
             // Iterate over them
@@ -93,7 +90,13 @@ class UtiDb {
      * @return True if found, false if not
      */
     public Boolean isUtiInDb(String utiName) {
-        return knownUtis.contains(utiName);
+        return conformances.containsVertex(utiName);
+    }
+    
+    public Boolean conformsTo(String childUti, String parentUti) {
+        DijkstraShortestPath<String,String> alg = new DijkstraShortestPath(conformances);
+        List<String> path = alg.getPath(childUti, parentUti);
+        return !path.isEmpty();
     }
     
     public void visualizeConformances() {
