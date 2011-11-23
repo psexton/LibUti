@@ -96,4 +96,5 @@ public class UtiDbTest {
         result = instance.isUtiInDb(utiName);
         assertEquals(expResult, result);
     }
+    
 }
