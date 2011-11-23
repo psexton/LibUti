@@ -4,6 +4,7 @@
  */
 package net.psexton.libuti;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -16,6 +17,7 @@ public class UtiBuilderTest {
     /**
      * Test of fromFile method, of class UtiBuilder.
      */
+    @Ignore
     @Test
     public void testFromFile() {
         fail("The test case is a prototype.");

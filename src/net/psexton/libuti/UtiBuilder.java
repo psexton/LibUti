@@ -5,10 +5,10 @@
 package net.psexton.libuti;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.jdom.JDOMException;
 
 /**
  * Builder for Uniform Type Identifiers
@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 public class UtiBuilder {
     private static final Logger logger = Logger.getLogger("net.psexton.libuti");
-    private Map<String, String> extensionTable;
+    private UtiDb utiDb;
     private final Uti PUBLIC_DATA;
     private final Uti PUBLIC_FOLDER;
     
@@ -26,16 +26,17 @@ public class UtiBuilder {
         PUBLIC_FOLDER = new Uti("public.folder");
         
         // Initialize lookup table - maps extensions to UTIs
-        extensionTable = new HashMap<String, String>();
-        // Microsoft Office
-        extensionTable.put("pdf", "com.adobe.pdf");
-        extensionTable.put("doc", "com.microsoft.word.doc");
-        extensionTable.put("docx", "com.microsoft.word.docx");
-        extensionTable.put("xls", "com.microsoft.excel.xls");
-        extensionTable.put("xlsx", "com.microsoft.excel.xlsx");
-        extensionTable.put("ppt", "com.microsoft.powerpoint.ppt");
-        extensionTable.put("pptx", "com.microsoft.powerpoint.pptx");
-        
+        utiDb = new UtiDb();
+        try {
+            utiDb.importXmlData(this.getClass().getResourceAsStream("/net/psexton/libuti/data/RootsAndBases.xml"));
+            utiDb.importXmlData(this.getClass().getResourceAsStream("/net/psexton/libuti/data/MicrosoftOffice.xml"));
+        } 
+        catch (IOException ex) {
+            Logger.getLogger(UtiBuilder.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        catch (JDOMException ex) {
+            Logger.getLogger(UtiBuilder.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     /**
@@ -71,11 +72,14 @@ public class UtiBuilder {
      * @return Instance of UTI, or opaque dynamic UTI if a match can not be found
      */
     public Uti fromSuffix(final String fileSuffix) {
-        if(extensionTable.containsKey(fileSuffix)) {
-            return new Uti(extensionTable.get(fileSuffix));
+        String utiName = utiDb.utiForSuffix(fileSuffix);
+        if(utiName != null) {
+            return new Uti(utiName);
         }
-        logger.log(Level.WARNING, "Unknown file suffix \"{0}\", using dynamic UTI", fileSuffix);
-        return new Uti("dyn." + fileSuffix);
+        else {
+            logger.log(Level.WARNING, "Unknown file suffix \"{0}\", using dynamic UTI", fileSuffix);
+            return new Uti("dyn." + fileSuffix);
+        }
     }
     
     /**
@@ -85,10 +89,12 @@ public class UtiBuilder {
      * @return Instance of UTI, or null if a match can not be found
      */
     public Uti fromString(final String utiName) {
-        if(extensionTable.containsValue(utiName)) {
+        if(utiDb.isUtiInDb(utiName)) {
             return new Uti(utiName);
         }
-        logger.log(Level.WARNING, "No matching UTI found for name \"{0}\", returning null", utiName);
-        return null;
+        else {
+            logger.log(Level.WARNING, "No matching UTI found for name \"{0}\", returning null", utiName);
+            return null;
+        }
     }
 }
