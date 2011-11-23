@@ -89,5 +89,11 @@ public class UtiDbTest {
         expResult = false;
         result = instance.isUtiInDb(utiName);
         assertEquals(expResult, result);
+        
+        // Test that a UTI that doesn't have any file suffixes but should still be there is
+        utiName = "public.data";
+        expResult = true;
+        result = instance.isUtiInDb(utiName);
+        assertEquals(expResult, result);
     }
 }

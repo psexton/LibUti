@@ -7,7 +7,9 @@ package net.psexton.libuti;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.logging.Logger;
 import org.jdom.Document;
 import org.jdom.Element;
@@ -20,10 +22,12 @@ import org.jdom.input.SAXBuilder;
  */
 class UtiDb {
     private static final Logger logger = Logger.getLogger("net.psexton.libuti");
+    private Set<String> knownUtis;
     private Map<String, String> suffixTable;
     
     public UtiDb() {
         suffixTable = new HashMap<String, String>();
+        knownUtis = new HashSet<String>();
     }
     
     /**
@@ -43,6 +47,7 @@ class UtiDb {
             Element uti = (Element) o;
             // UTI's name is in a <name> child
             String name = uti.getChildText("name");
+            knownUtis.add(name);
             // File suffixes are in <suffix> children
             // Iterate over them
             for(Object o2 : uti.getChildren("suffix")) {
@@ -70,6 +75,6 @@ class UtiDb {
      * @return True if found, false if not
      */
     public Boolean isUtiInDb(String utiName) {
-        return suffixTable.containsValue(utiName);
+        return knownUtis.contains(utiName);
     }
 }
