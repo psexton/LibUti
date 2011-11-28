@@ -55,15 +55,10 @@
         <conforms-to>public.data</conforms-to>
     </uti>
     <uti>
-        <name>public.plain-text</name>
-        <conforms-to>public.text</conforms-to>
-    </uti>
-    <uti>
         <name>public.source-code</name>
         <conforms-to>public.plain-text</conforms-to>
     </uti>
     
-
     <!-- OTHER -->
     <uti>
         <name>public.folder</name>

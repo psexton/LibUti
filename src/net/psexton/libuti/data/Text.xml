@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : Text.xml
+    Created on : November 28, 2011, 3:10 PM
+    Author     : PSexton
+    Description:
+        UTI for text and text-like documents.
+-->
+
+<uti-list>
+
+    <uti>
+        <name>public.plain-text</name>
+        <suffix>txt</suffix>
+        <suffix>text</suffix>
+        <conforms-to>public.text</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>public.rtf</name>
+        <suffix>rtf</suffix>
+        <conforms-to>public.text</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>public.html</name>
+        <suffix>htm</suffix>
+        <suffix>html</suffix>
+        <conforms-to>public.text</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>public.xml</name>
+        <suffix>xml</suffix>
+        <conforms-to>public.text</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>public.comma-separated-values-text</name>
+        <suffix>csv</suffix>
+        <conforms-to>public.text</conforms-to>
+    </uti>
+    
+</uti-list>
