@@ -17,7 +17,8 @@
     <!-- ROOTS -->
     <uti><name>public.item</name></uti> <!-- Base type for the physical hierarchy -->
     <uti><name>public.content</name></uti> <!-- Base type for all document content -->
-    <uti><name>public.archive</name></uti> <!-- Base type for archive files -->
+    <uti><name>public.archive</name></uti>
+    <uti><name>public.executable</name></uti>
     
     <!-- BASES -->
     <uti> <!-- Base type for mixed content -->
@@ -55,9 +56,13 @@
         <conforms-to>public.content</conforms-to>
         <conforms-to>public.data</conforms-to>
     </uti>
-    <uti>
+    <uti> <!-- Base type for source code -->
         <name>public.source-code</name>
         <conforms-to>public.plain-text</conforms-to>
+    </uti>
+    <uti> <!-- Base type for interpreted source code -->
+        <name>public.script</name>
+        <conforms-to>public.source-code</conforms-to>
     </uti>
     
     <!-- OTHER -->

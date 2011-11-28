@@ -41,7 +41,7 @@ class UtiDb {
         suffixTable = new HashMap<String, String>();
         conformances = new DirectedSparseGraph<String, String>();
         if(loadStandardData) {
-            String[] dataFiles = {"Archive", "Audio", "Image", "Matlab", "MicrosoftOffice", "RootsAndBases", "Text", "Video"};
+            String[] dataFiles = {"Archive", "Audio", "Image", "Matlab", "MicrosoftOffice", "Other", "RootsAndBases", "Text", "Video"};
             for (String dataFile : dataFiles) {
                 try {
                     importXmlData(this.getClass().getResourceAsStream("/net/psexton/libuti/data/" + dataFile + ".xml"));

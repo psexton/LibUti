@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : Other.xml
+    Created on : November 28, 2011, 4:14 PM
+    Author     : PSexton
+    Description:
+        Misc UTIs.
+-->
+
+<uti-list>
+    
+    <!-- Adobe -->
+    
+    <uti>
+        <name>com.adobe.pdf</name>
+        <suffix>pdf</suffix>
+        <conforms-to>public.data</conforms-to>
+        <conforms-to>public.composite-content</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>com.adobe.postscript</name>
+        <suffix>ps</suffix>
+        <conforms-to>public.data</conforms-to>
+    </uti>
+    
+    <!-- Executables -->
+    
+    <uti>
+        <name>com.microsoft.windows-executable</name>
+        <suffix>exe</suffix>
+        <conforms-to>public.data</conforms-to>
+        <conforms-to>public.executable</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>com.microsoft.windows-dynamic-link-library</name>
+        <suffix>dll</suffix>
+        <conforms-to>public.data</conforms-to>
+        <conforms-to>public.executable</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>com.sun.java-archive</name>
+        <suffix>jar</suffix>
+        <conforms-to>public.data</conforms-to>
+        <conforms-to>public.executable</conforms-to>
+        <conforms-to>public.archive</conforms-to>
+    </uti>
+    
+    <!-- Programming -->
+    
+    <uti>
+        <name>public.shell-script</name>
+        <suffix>sh</suffix>
+        <suffix>command</suffix>
+        <conforms-to>public.script</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>public.csh-script</name>
+        <suffix>csh</suffix>
+        <conforms-to>public.shell-script</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>public.python-script</name>
+        <suffix>py</suffix>
+        <conforms-to>public.shell-script</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>public.ruby-script</name>
+        <suffix>rb</suffix>
+        <suffix>rbw</suffix>
+        <conforms-to>public.shell-script</conforms-to>
+    </uti>
+    
+</uti-list>
