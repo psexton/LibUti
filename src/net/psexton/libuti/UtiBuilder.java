@@ -5,10 +5,8 @@
 package net.psexton.libuti;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jdom.JDOMException;
 
 /**
  * Builder for Uniform Type Identifiers
@@ -26,19 +24,7 @@ public class UtiBuilder {
         PUBLIC_FOLDER = new Uti("public.folder");
         
         // Initialize lookup table - maps extensions to UTIs
-        utiDb = new UtiDb();
-        String[] dataFiles = {"RootsAndBases", "MicrosoftOffice"};
-        for(String dataFile : dataFiles) {
-            try {
-                utiDb.importXmlData(this.getClass().getResourceAsStream("/net/psexton/libuti/data/" + dataFile + ".xml"));
-            } 
-            catch (IOException ex) {
-                Logger.getLogger(UtiBuilder.class.getName()).log(Level.SEVERE, null, ex);
-            } 
-            catch (JDOMException ex) {
-                Logger.getLogger(UtiBuilder.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+        utiDb = UtiDb.getInstance();
     }
     
     /**

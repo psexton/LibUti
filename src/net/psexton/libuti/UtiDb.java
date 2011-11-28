@@ -16,6 +16,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import org.jdom.Document;
@@ -28,13 +29,32 @@ import org.jdom.input.SAXBuilder;
  * @author psexton
  */
 class UtiDb {
-    private static final Logger logger = Logger.getLogger("net.psexton.libuti");
+    // Singleton stuff
+    private static class SingletonHolder { public static final UtiDb instance = new UtiDb(true); }
+    public static UtiDb getInstance() { return SingletonHolder.instance; }
+    public static UtiDb getCleanInstance() { return new UtiDb(false); }
+    // End Singleton stuff
+    
     private Map<String, String> suffixTable;
     private DirectedSparseGraph<String, String> conformances;
     
-    public UtiDb() {
+    private UtiDb(boolean loadStandardData) {
         suffixTable = new HashMap<String, String>();
         conformances = new DirectedSparseGraph<String, String>();
+        if(loadStandardData) {
+            String[] dataFiles = {"RootsAndBases", "Audio", "MicrosoftOffice"};
+            for (String dataFile : dataFiles) {
+                try {
+                    importXmlData(this.getClass().getResourceAsStream("/net/psexton/libuti/data/" + dataFile + ".xml"));
+                } 
+                catch (IOException ex) {
+                    Logger.getLogger(UtiDb.class.getName()).log(Level.SEVERE, null, ex);
+                } 
+                catch (JDOMException ex) {
+                    Logger.getLogger(UtiDb.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
     }
     
     /**
@@ -43,7 +63,7 @@ class UtiDb {
      * @throws IOException if there was a problem reading the InputStream
      * @throws JDOMException if there was a problem parsing the XML
      */
-    public void importXmlData(InputStream in) throws IOException, JDOMException {
+    public final void importXmlData(InputStream in) throws IOException, JDOMException {
         // Parse the input stream and rip out a usable Element from the Document
         Document doc = new SAXBuilder().build(in);
         Element root = doc.detachRootElement();

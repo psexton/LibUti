@@ -4,8 +4,6 @@
  */
 package net.psexton.libuti;
 
-import org.jdom.JDOMException;
-import java.io.IOException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,19 +19,7 @@ public class UtiDbTest {
     @Before
     public void setUp() {
         // Initialize instance with the default set of XML files
-        instance = new UtiDb();
-        String[] dataFiles = {"RootsAndBases", "MicrosoftOffice"};
-        for(String dataFile : dataFiles) {
-            try {
-                instance.importXmlData(this.getClass().getResourceAsStream("/net/psexton/libuti/data/" + dataFile + ".xml"));
-            } 
-            catch (IOException ex) {
-                throw new RuntimeException(ex); // punt on catching exceptions
-            } 
-            catch (JDOMException ex) {
-                throw new RuntimeException(ex);
-            }
-        }
+        instance = UtiDb.getInstance();
     }
     
     @After
@@ -51,7 +37,7 @@ public class UtiDbTest {
         // and that with it, it returns non-null.
         String suffix = "docx";
         assertNotNull(instance.utiForSuffix(suffix));
-        instance = new UtiDb();
+        instance = UtiDb.getCleanInstance(); // no calls to importXmlData
         assertNull(instance.utiForSuffix(suffix));
     }
 
