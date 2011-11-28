@@ -36,18 +36,21 @@
     <uti>
         <name>com.microsoft.word.docx</name>
         <suffix>docx</suffix>
+        <suffix>docm</suffix>
         <conforms-to>public.data</conforms-to>
     </uti>
     
     <uti>
         <name>com.microsoft.excel.xlsx</name>
         <suffix>xlsx</suffix>
+        <suffix>xlsm</suffix>
         <conforms-to>public.data</conforms-to>
     </uti>
     
     <uti>
         <name>com.microsoft.powerpoint.pptx</name>
         <suffix>pptx</suffix>
+        <suffix>pptm</suffix>
         <conforms-to>public.data</conforms-to>
         <conforms-to>public.presentation</conforms-to>
     </uti>
