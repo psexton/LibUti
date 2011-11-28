@@ -17,6 +17,7 @@
     <!-- ROOTS -->
     <uti><name>public.item</name></uti> <!-- Base type for the physical hierarchy -->
     <uti><name>public.content</name></uti> <!-- Base type for all document content -->
+    <uti><name>public.archive</name></uti> <!-- Base type for archive files -->
     
     <!-- BASES -->
     <uti> <!-- Base type for mixed content -->

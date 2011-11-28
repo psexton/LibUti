@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : Archive.xml
+    Created on : November 28, 2011, 3:19 PM
+    Author     : PSexton
+    Description:
+        UTIs for archive file formats.
+-->
+
+<uti-list>
+    
+    <!-- TAR -->
+    <uti>
+        <name>org.gnu.gnu-tar-archive</name>
+        <suffix>gtar</suffix>
+        <conforms-to>public.data</conforms-to>
+        <conforms-to>public.archive</conforms-to>
+    </uti>
+    <uti>
+        <name>public.tar-archive</name>
+        <suffix>tar</suffix>
+        <conforms-to>org.gnu.gnu-tar-archive</conforms-to>
+    </uti>
+    
+    <!-- ZIP -->
+    <uti>
+        <name>com.pkware.zip-archive</name>
+        <suffix>zip</suffix>
+        <conforms-to>public.data</conforms-to>
+        <conforms-to>public.archive</conforms-to>
+    </uti>
+    
+    <!-- GZIP -->
+    <uti>
+        <name>org.gnu.gnu-zip-archive</name>
+        <suffix>gz</suffix>
+        <suffix>gzip</suffix>
+        <conforms-to>public.data</conforms-to>
+        <conforms-to>public.archive</conforms-to>
+    </uti>
+    
+    <!-- TARRED GZIP -->
+    <uti>
+        <name>org.gnu.gnu-zip-tar-archive</name>
+        <suffix>tgz</suffix>
+        <conforms-to>org.gnu.gnu-zip-archive</conforms-to>
+    </uti>
+    
+</uti-list>
