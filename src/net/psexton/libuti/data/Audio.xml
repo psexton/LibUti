@@ -11,6 +11,36 @@
 
 <uti-list>
     
+    <uti>
+        <name>public.mp3</name>
+        <suffix>mp3</suffix>
+        <conforms-to>public.audio</conforms-to>
+    </uti>
     
+    <uti>
+        <name>public.mpeg-4-audio</name>
+        <suffix>m4a</suffix>
+        <conforms-to>public.audio</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>public.aiff-audio</name>
+        <suffix>aif</suffix>
+        <suffix>aiff</suffix>
+        <conforms-to>public.audio</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>com.microsoft.waveform-​audio</name>
+        <suffix>wav</suffix>
+        <suffix>wave</suffix>
+        <conforms-to>public.audio</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>com.digidesign.sd2-audio</name>
+        <suffix>sd2</suffix>
+        <conforms-to>public.audio</conforms-to>
+    </uti>
     
 </uti-list>
