@@ -31,7 +31,7 @@
     </uti>
     
     <uti>
-        <name>com.microsoft.waveform-​audio</name>
+        <name>com.microsoft.waveform-audio</name>
         <suffix>wav</suffix>
         <suffix>wave</suffix>
         <conforms-to>public.audio</conforms-to>

@@ -98,4 +98,32 @@ public class UtiDbTest {
         assertTrue(instance.conformsTo(msExcel, publicData));
         assertFalse(instance.conformsTo(msWord, msExcel));
     }
+    
+    /**
+     * Test that a UTI with multiple suffixes is initialized properly
+     */
+    @Test
+    public void testParseMultipleSuffixes() {
+        String suffix = "wav";
+        String expResult = "com.microsoft.waveform-audio";
+        String result = instance.utiForSuffix(suffix);
+        assertEquals(expResult, result);
+        suffix = "wave";
+        result = instance.utiForSuffix(suffix);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test that a UTI with multiple conformances is initialized properly
+     */
+    @Test
+    public void testParseMultipleParents() {
+        // msPowerpoint should conform to both publicData and publicPresentation
+        String msPowerpoint = "com.microsoft.powerpoint.ppt";
+        String publicData = "public.data";
+        String publicPresentation = "public.presentation";
+        
+        assertTrue(instance.conformsTo(msPowerpoint, publicData));
+        assertTrue(instance.conformsTo(msPowerpoint, publicPresentation));
+    }
 }
