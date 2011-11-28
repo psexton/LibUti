@@ -8,8 +8,8 @@
     
     A "root UTI" is one that does not conform to any other type.
     
-    A "base UTI" is one that conforms to another type, but cannot be instantiated. 
-    (An abstract type). i.e. a branch such as "public.image"
+    A "base UTI" is one that conforms to another type, but does not have a 
+    suffix or MIME type. i.e. a branch such as "public.image"
 -->
 
 <uti-list>
@@ -45,6 +45,20 @@
         <name>public.audio</name>
         <conforms-to>public.audiovisual-content</conforms-to>
     </uti>
+    <uti>  <!-- Base type for all text files -->
+        <name>public.text</name>
+        <conforms-to>public.content</conforms-to>
+        <conforms-to>public.data</conforms-to>
+    </uti>
+    <uti>
+        <name>public.plain-text</name>
+        <conforms-to>public.text</conforms-to>
+    </uti>
+    <uti>
+        <name>public.source-code</name>
+        <conforms-to>public.plain-text</conforms-to>
+    </uti>
+    
 
     <!-- OTHER -->
     <uti>

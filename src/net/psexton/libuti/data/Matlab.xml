@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : Matlab.xml
+    Created on : November 28, 2011, 2:26 PM
+    Author     : PSexton
+    Description:
+        Purpose of the document follows.
+-->
+
+<uti-list>
+    
+    <uti>
+        <name>com.mathworks.matlab-code</name>
+        <suffix>m</suffix>
+        <conforms-to>public.source-code</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>com.mathworks.matlab-data</name>
+        <suffix>mat</suffix>
+        <conforms-to>public.composite-content</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>com.mathworks.matlab-figure</name>
+        <suffix>fig</suffix>
+        <conforms-to>public.composite-content</conforms-to>
+    </uti>
+    
+</uti-list>
