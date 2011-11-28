@@ -4,7 +4,8 @@
  */
 package net.psexton.libuti;
 
-import edu.uci.ics.jung.algorithms.layout.CircleLayout;
+import edu.uci.ics.jung.algorithms.layout.DAGLayout;
+import edu.uci.ics.jung.algorithms.layout.Layout;
 import edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath;
 import edu.uci.ics.jung.graph.DirectedSparseGraph;
 import edu.uci.ics.jung.graph.util.EdgeType;
@@ -120,10 +121,12 @@ class UtiDb {
     }
     
     public void visualizeConformances() {
-        CircleLayout<Integer, String> layout = new CircleLayout(conformances); 
-        layout.setSize(new Dimension(500,500)); 
+        final int WIDTH = 1200;
+        final int HEIGHT = 700;
+        Layout<Integer, String> layout = new DAGLayout(conformances);
+        layout.setSize(new Dimension(WIDTH,HEIGHT)); 
         BasicVisualizationServer<Integer,String> vv =new BasicVisualizationServer<Integer,String>(layout); 
-        vv.setPreferredSize(new Dimension(550,550));
+        vv.setPreferredSize(new Dimension(WIDTH+50,HEIGHT+50));
         vv.getRenderContext().setVertexLabelTransformer(new ToStringLabeller());
         JFrame frame = new JFrame("UTI Conformances"); 
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
