@@ -15,12 +15,8 @@
 <uti-list>
 
     <!-- ROOTS -->
-    <uti> <!-- Base type for the physical hierarchy -->
-        <name>public.item</name>
-    </uti> 
-    <uti> <!-- Base type for all document content -->
-        <name>public.content</name>
-    </uti>
+    <uti><name>public.item</name></uti> <!-- Base type for the physical hierarchy -->
+    <uti><name>public.content</name></uti> <!-- Base type for all document content -->
     
     <!-- BASES -->
     <uti>
@@ -45,7 +41,15 @@
         <conforms-to>public.data</conforms-to>
         <conforms-to>public.content</conforms-to>
     </uti>
+    <uti>
+        <name>public.audio</name>
+        <conforms-to>public.audiovisual-content</conforms-to>
+    </uti>
 
     <!-- OTHER -->
+    <uti>
+        <name>public.folder</name>
+        <conforms-to>public.directory</conforms-to>
+    </uti>
     
 </uti-list>
