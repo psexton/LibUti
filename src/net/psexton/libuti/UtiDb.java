@@ -4,22 +4,20 @@
  */
 package net.psexton.libuti;
 
-import edu.uci.ics.jung.algorithms.layout.DAGLayout;
 import edu.uci.ics.jung.algorithms.layout.Layout;
 import edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath;
 import edu.uci.ics.jung.graph.DirectedSparseGraph;
+import edu.uci.ics.jung.graph.Graph;
 import edu.uci.ics.jung.graph.util.EdgeType;
-import edu.uci.ics.jung.visualization.BasicVisualizationServer;
-import edu.uci.ics.jung.visualization.decorators.ToStringLabeller;
-import java.awt.Dimension;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JFrame;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
@@ -120,18 +118,30 @@ class UtiDb {
         return !path.isEmpty();
     }
     
-    public void visualizeConformances() {
-        final int WIDTH = 1200;
-        final int HEIGHT = 700;
-        Layout<Integer, String> layout = new DAGLayout(conformances);
-        layout.setSize(new Dimension(WIDTH,HEIGHT)); 
-        BasicVisualizationServer<Integer,String> vv =new BasicVisualizationServer<Integer,String>(layout); 
-        vv.setPreferredSize(new Dimension(WIDTH+50,HEIGHT+50));
-        vv.getRenderContext().setVertexLabelTransformer(new ToStringLabeller());
-        JFrame frame = new JFrame("UTI Conformances"); 
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
-        frame.getContentPane().add(vv); frame.pack();
-        frame.setVisible(true);
+    /**
+     * Given a layout class, returns an instance of that class constructed using
+     * the JUNG graph we use internally.
+     * @param layoutClass
+     * @return 
+     */
+    protected Layout<Integer, String> constructLayout(Class layoutClass) {
+        try {
+            Constructor ctr = layoutClass.getConstructor(Graph.class);
+            Object obj = ctr.newInstance(conformances);
+            return (Layout<Integer, String>) obj;
+        } 
+        catch (IllegalAccessException ex) {
+            throw new RuntimeException(ex);
+        }
+        catch (InstantiationException ex) {
+            throw new RuntimeException(ex);
+        }
+        catch (InvocationTargetException ex) {
+            throw new RuntimeException(ex);
+        }
+        catch (NoSuchMethodException ex) {
+            throw new RuntimeException(ex);
+        } 
     }
     
 }

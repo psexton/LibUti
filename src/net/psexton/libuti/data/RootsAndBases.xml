@@ -19,7 +19,7 @@
     <uti><name>public.content</name></uti> <!-- Base type for all document content -->
     
     <!-- BASES -->
-    <uti>
+    <uti> <!-- Base type for mixed content -->
         <name>public.composite-content</name>
         <conforms-to>public.content</conforms-to>
     </uti>
