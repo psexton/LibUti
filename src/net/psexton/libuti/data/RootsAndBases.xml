@@ -45,6 +45,10 @@
         <name>public.audio</name>
         <conforms-to>public.audiovisual-content</conforms-to>
     </uti>
+    <uti>
+        <name>public.movie</name>
+        <conforms-to>public.audiovisual-content</conforms-to>
+    </uti>
     <uti>  <!-- Base type for all text files -->
         <name>public.text</name>
         <conforms-to>public.content</conforms-to>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : Video.xml
+    Created on : November 28, 2011, 3:01 PM
+    Author     : PSexton
+    Description:
+        UTIs for video files.
+-->
+
+<uti-list>
+
+    <uti>
+        <name>com.apple.quicktime-movie</name>
+        <suffix>mov</suffix>
+        <suffix>qt</suffix>
+        <conforms-to>public.movie</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>public.avi</name>
+        <suffix>avi</suffix>
+        <conforms-to>public.movie</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>public.mpeg</name>
+        <suffix>mpg</suffix>
+        <suffix>mpeg</suffix>
+        <suffix>m75</suffix>
+        <suffix>m15</suffix>
+        <conforms-to>public.movie</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>public.mpeg-4</name>
+        <suffix>mp4</suffix>
+        <conforms-to>public.movie</conforms-to>
+    </uti>
+    
+</uti-list>
+
