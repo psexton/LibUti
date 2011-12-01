@@ -65,7 +65,6 @@ public class UtiBuilder {
             return new Uti(utiName);
         }
         else {
-            logger.log(Level.WARNING, "Unknown file suffix \"{0}\", using dynamic UTI", fileSuffix);
             return new Uti("dyn." + fileSuffix);
         }
     }
@@ -81,7 +80,6 @@ public class UtiBuilder {
             return new Uti(utiName);
         }
         else {
-            logger.log(Level.WARNING, "No matching UTI found for name \"{0}\", returning null", utiName);
             return null;
         }
     }
