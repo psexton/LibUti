@@ -1,0 +1,10 @@
+LibUti Changelog
+
+Version 0.1.0 (April 4, 2013):
+- Initial release.
+
+NOTE: Version numbers are assigned according to the Semantic Versioning Specification <http://semver.org>
+
+Last Updated: 
+Paul Sexton
+April 4, 2013
