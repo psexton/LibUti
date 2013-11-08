@@ -60,7 +60,8 @@ public class UtiBuilder {
      * @return Instance of UTI, or opaque dynamic UTI if a match can not be found
      */
     public Uti fromSuffix(final String fileSuffix) {
-        String utiName = utiDb.utiForSuffix(fileSuffix);
+        // Normalize fileSuffix to lowercase before making DB call
+        String utiName = utiDb.utiForSuffix(fileSuffix.toLowerCase());
         if(utiName != null) {
             return new Uti(utiName);
         }

@@ -64,4 +64,14 @@ public class UtiBuilderTest {
         Uti result = instance.fromString(utiName);
         assertEquals(expResult, result);
     }
+    
+    @Test
+    public void testFromSuffixUppercase() {
+        String fileSuffix = "DOCX";
+        UtiBuilder instance = new UtiBuilder();
+        Uti expResult = new Uti("com.microsoft.word.docx");
+        Uti result = instance.fromSuffix(fileSuffix);
+        assertEquals(expResult, result);
+    }
+    
 }
