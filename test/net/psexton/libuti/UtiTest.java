@@ -60,4 +60,24 @@ public class UtiTest {
         assertEquals(instance1a.hashCode(), instance1b.hashCode());
         assertFalse(instance1a.hashCode() == instance2.hashCode());
     }
+    
+    @Test
+    public void testConformsToSelf() {
+        Uti instance = new Uti("public.image");
+        assertTrue(instance.conformsTo(instance));
+    }
+    
+    @Test
+    public void testConformsToParent() {
+        Uti instance = new Uti("public.png");
+        Uti parent = new Uti("public.image");
+        assertTrue(instance.conformsTo(parent));
+    }
+    
+    @Test
+    public void testDoesNotConformToNonParent() {
+        Uti instance = new Uti("public.png");
+        Uti nonParent = new Uti("public.movie");
+        assertFalse(instance.conformsTo(nonParent));
+    }
 }

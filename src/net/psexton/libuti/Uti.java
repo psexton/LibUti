@@ -41,5 +41,13 @@ public class Uti {
         return hash;
     }
     
+    public boolean conformsTo(Uti parent) {
+        if(parent == null) // cannot conform to null
+            return false;
+        if(parent.equals(this)) // always conform to self
+            return true;
+        return UtiDb.getInstance().conformsTo(this.toString(), parent.toString());
+    }
+    
     private final String name; // e.g. "public.plain-text"
 }
