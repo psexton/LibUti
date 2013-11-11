@@ -34,8 +34,8 @@ class UtiDb {
     public static UtiDb getCleanInstance() { return new UtiDb(false); }
     // End Singleton stuff
     
-    private Map<String, String> suffixTable;
-    private DirectedSparseGraph<String, String> conformances;
+    private final Map<String, String> suffixTable;
+    private final DirectedSparseGraph<String, String> conformances;
     
     private UtiDb(boolean loadStandardData) {
         suffixTable = new HashMap<String, String>();
