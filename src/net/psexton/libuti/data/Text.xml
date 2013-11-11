@@ -42,4 +42,10 @@
         <conforms-to>public.text</conforms-to>
     </uti>
     
+    <uti>
+        <name>public.css</name>
+        <suffix>css</suffix>
+        <conforms-to>public.text</conforms-to>
+    </uti>
+    
 </uti-list>
