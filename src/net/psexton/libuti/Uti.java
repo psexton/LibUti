@@ -41,6 +41,12 @@ public class Uti {
         return hash;
     }
     
+    /**
+     * Checks if this UTI conforms to another UTI.
+     * @param parent The "parent" the check against
+     * @return True if this conforms to parent
+     * @since 0.2.0
+     */
     public boolean conformsTo(Uti parent) {
         if(parent == null) // cannot conform to null
             return false;

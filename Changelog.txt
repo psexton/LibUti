@@ -1,7 +1,9 @@
 LibUti Changelog
 
-Version ??? (???):
+Version 0.2.0 (2013-11-11):
+- Adds conformsTo method to Uti class (#1)
 - Fixes problem with uppercase file suffixes (#2)
+- Adds some additional file types (#3)
 
 Version 0.1.0 (2013-04-04):
 - Initial release.
@@ -10,4 +12,4 @@ NOTE: Version numbers are assigned according to the Semantic Versioning Specific
 
 Last Updated: 
 Paul Sexton
-2013-04-04
+2013-11-11
