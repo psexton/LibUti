@@ -43,4 +43,11 @@
         <conforms-to>public.audio</conforms-to>
     </uti>
     
+    <uti>
+        <name>com.microsoft.windows-media-wma</name>
+        <suffix>wma</suffix>
+        <conforms-to>public.audio</conforms-to>
+        <conforms-to>com.microsoft.advanced-systems-format</conforms-to>
+    </uti>
+    
 </uti-list>

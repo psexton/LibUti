@@ -38,5 +38,18 @@
         <conforms-to>public.movie</conforms-to>
     </uti>
     
+    <uti>
+        <name>com.microsoft.advanced-systems-format</name>
+        <suffix>asf</suffix>
+        <conforms-to>public.audiovisual-content</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>com.microsoft.windows-media-wmv</name>
+        <suffix>wmv</suffix>
+        <conforms-to>public.movie</conforms-to>
+        <conforms-to>com.microsoft.advanced-systems-format</conforms-to>
+    </uti>
+    
 </uti-list>
 
