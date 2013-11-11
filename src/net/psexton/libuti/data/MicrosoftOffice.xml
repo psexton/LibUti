@@ -16,17 +16,49 @@
         <name>com.microsoft.word.doc</name>
         <suffix>doc</suffix>
         <conforms-to>public.data</conforms-to>
+        <conforms-to>public.composite-content</conforms-to>
     </uti>
     
     <uti>
         <name>com.microsoft.excel.xls</name>
         <suffix>xls</suffix>
         <conforms-to>public.data</conforms-to>
+        <conforms-to>public.composite-content</conforms-to>
     </uti>
     
     <uti>
         <name>com.microsoft.powerpoint.ppt</name>
         <suffix>ppt</suffix>
+        <conforms-to>public.data</conforms-to>
+        <conforms-to>public.presentation</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>com.microsoft.powerpoint.pps</name>
+        <suffix>pps</suffix>
+        <conforms-to>public.data</conforms-to>
+        <conforms-to>public.presentation</conforms-to>
+    </uti>
+    
+    <!-- Template forms of non-XML Versions -->
+    
+    <uti>
+        <name>com.microsoft.word.dot</name>
+        <suffix>dot</suffix>
+        <conforms-to>public.data</conforms-to>
+        <conforms-to>public.composite-content</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>com.microsoft.excel.xlt</name>
+        <suffix>xlt</suffix>
+        <conforms-to>public.data</conforms-to>
+        <conforms-to>public.composite-content</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>com.microsoft.powerpoint.pot</name>
+        <suffix>pot</suffix>
         <conforms-to>public.data</conforms-to>
         <conforms-to>public.presentation</conforms-to>
     </uti>
@@ -38,6 +70,7 @@
         <suffix>docx</suffix>
         <suffix>docm</suffix>
         <conforms-to>public.data</conforms-to>
+        <conforms-to>public.composite-content</conforms-to>
     </uti>
     
     <uti>
@@ -45,12 +78,43 @@
         <suffix>xlsx</suffix>
         <suffix>xlsm</suffix>
         <conforms-to>public.data</conforms-to>
+        <conforms-to>public.composite-content</conforms-to>
     </uti>
     
     <uti>
         <name>com.microsoft.powerpoint.pptx</name>
         <suffix>pptx</suffix>
         <suffix>pptm</suffix>
+        <conforms-to>public.data</conforms-to>
+        <conforms-to>public.presentation</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>com.microsoft.powerpoint.ppsx</name>
+        <suffix>ppsx</suffix>
+        <conforms-to>public.data</conforms-to>
+        <conforms-to>public.presentation</conforms-to>
+    </uti>
+    
+    <!-- Template forms of XML Versions -->
+    
+    <uti>
+        <name>com.microsoft.word.dotx</name>
+        <suffix>dotx</suffix>
+        <conforms-to>public.data</conforms-to>
+        <conforms-to>public.composite-content</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>com.microsoft.excel.xltx</name>
+        <suffix>xltx</suffix>
+        <conforms-to>public.data</conforms-to>
+        <conforms-to>public.composite-content</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>com.microsoft.powerpoint.potx</name>
+        <suffix>potx</suffix>
         <conforms-to>public.data</conforms-to>
         <conforms-to>public.presentation</conforms-to>
     </uti>
