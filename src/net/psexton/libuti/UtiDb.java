@@ -29,7 +29,7 @@ class UtiDb {
     // Singleton stuff
     private static class SingletonHolder { public static final UtiDb instance = new UtiDb(true); }
     public static UtiDb getInstance() { return SingletonHolder.instance; }
-    public static UtiDb getCleanInstance() { return new UtiDb(false); }
+    static UtiDb getCleanInstance() { return new UtiDb(false); } // used by unit tests
     // End Singleton stuff
     
     private final Map<String, String> suffixTable;
