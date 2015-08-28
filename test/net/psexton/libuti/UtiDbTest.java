@@ -4,6 +4,8 @@
  */
 package net.psexton.libuti;
 
+import java.util.HashSet;
+import java.util.Set;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,6 +31,7 @@ public class UtiDbTest {
 
     /**
      * Test of importXmlData method, of class UtiDb.
+     * @throws java.lang.Exception
      */
     @Test
     public void testImportXmlData() throws Exception {
@@ -151,6 +154,57 @@ public class UtiDbTest {
         String uti = "public.audio";
         String expResult = null;
         String result = instance.preferredSuffixForUti(uti);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void conformancesForRoot() {
+        String uti = "public.item";
+        Set<String> expResult = new HashSet<String>();
+        expResult.add(uti);
+        Set<String> result = instance.conformancesFor(uti);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void conformancesForLeaf() {
+        String uti = "public.png";
+        Set<String> expResult = new HashSet<String>();
+        // self
+        expResult.add(uti);
+        // physical hierarchy
+        expResult.add("public.image");
+        expResult.add("public.data");
+        expResult.add("public.item");
+        // document hierarchy
+        expResult.add("public.content");
+        Set<String> result = instance.conformancesFor(uti);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void conformersForMid() {
+        String uti = "public.image";
+        Set<String> expResult = new HashSet<String>();
+        // self
+        expResult.add(uti);
+        // physical hierarchy
+        expResult.add("public.png");
+        expResult.add("public.jpeg");
+        expResult.add("public.tiff");
+        expResult.add("com.compuserve.gif");
+        expResult.add("com.microsoft.bmp");
+        Set<String> result = instance.conformersFor(uti);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void conformersForLeaf() {
+        String uti = "public.png";
+        Set<String> expResult = new HashSet<String>();
+        // self
+        expResult.add(uti);
+        Set<String> result = instance.conformersFor(uti);
         assertEquals(expResult, result);
     }
 }

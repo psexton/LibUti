@@ -14,8 +14,10 @@ import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.jdom.Document;
@@ -131,8 +133,31 @@ class UtiDb {
     
     public Boolean conformsTo(String childUti, String parentUti) {
         DijkstraShortestPath<String,String> alg = new DijkstraShortestPath(conformances);
+        
         List<String> path = alg.getPath(childUti, parentUti);
         return !path.isEmpty();
+    }
+    
+    public Set<String> conformancesFor(String utiName) {
+        Set<String> set = new HashSet<String>();
+        set.add(utiName); // always include self
+        for(String successor : conformances.getSuccessors(utiName)) {
+            Set<String> parentSet = conformancesFor(successor);
+            set.addAll(parentSet);
+        }
+        
+        return set;
+    }
+    
+    public Set<String> conformersFor(String utiName) {
+        Set<String> set = new HashSet<String>();
+        set.add(utiName); // always include self
+        for(String predecessor : conformances.getPredecessors(utiName)) {
+            Set<String> childSet = conformersFor(predecessor);
+            set.addAll(childSet);
+        }
+        
+        return set;
     }
     
     /**
