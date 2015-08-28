@@ -6,12 +6,16 @@ package net.psexton.libuti;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Rule;
+import org.junit.rules.ExpectedException;
 
 /**
  *
  * @author PSexton
  */
 public class UtiTest {
+    
+    @Rule public ExpectedException thrown= ExpectedException.none();
 
     /**
      * Test of toString method, of class Uti.
@@ -129,5 +133,13 @@ public class UtiTest {
         Uti instance = new Uti("com.microsoft.waveform-audio");
         int result = instance.compareTo(instance);
         assertTrue(result == 0);
+    }
+    
+    @Test
+    public void testCompareToNull() {
+        Uti instance = new Uti("public.data");
+        Uti other = null;
+        thrown.expect(NullPointerException.class);
+        int result = instance.compareTo(other);
     }
 }
