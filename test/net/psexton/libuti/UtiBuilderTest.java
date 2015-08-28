@@ -41,6 +41,24 @@ public class UtiBuilderTest {
         Uti result = instance.fromFile(file);
         assertEquals(expResult, result);
     }
+    
+    @Test
+    public void testFromFileWithDir() throws IOException {
+        File dir = temp.newFolder("subsubsub");
+        UtiBuilder instance = new UtiBuilder();
+        Uti expResult = new Uti("public.folder");
+        Uti result = instance.fromFile(dir);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testFromFileNoExtension() throws IOException {
+        File file = temp.newFile("foo");
+        UtiBuilder instance = new UtiBuilder();
+        Uti expResult = new Uti("public.data");
+        Uti result = instance.fromFile(file);
+        assertEquals(expResult, result);
+    }
 
     /**
      * Test of fromSuffix method, of class UtiBuilder.
