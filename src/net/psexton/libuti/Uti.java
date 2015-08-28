@@ -4,6 +4,8 @@
  */
 package net.psexton.libuti;
 
+import java.util.Set;
+
 /**
  * Uniform Type Identifier
  * @author PSexton
@@ -12,7 +14,10 @@ public class Uti implements Comparable<Uti> {
     private final String name; // e.g. "public.plain-text"
     
     protected Uti(final String name) {
-        this.name = name;
+        if(name == null)
+            throw new NullPointerException("name cannot be null");
+        else
+            this.name = name;
     }
 
     @Override
@@ -29,13 +34,13 @@ public class Uti implements Comparable<Uti> {
             return false;
         }
         final Uti other = (Uti) obj;
-        return !((this.name == null) ? (other.name != null) : !this.name.equals(other.name));
+        return this.name.equals(other.name);
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 89 * hash + (this.name != null ? this.name.hashCode() : 0);
+        hash = 89 * hash + this.name.hashCode();
         return hash;
     }
     
@@ -72,4 +77,23 @@ public class Uti implements Comparable<Uti> {
         return this.name.compareTo(o.name);
     }
     
+    /**
+     * Return conformances.
+     * This is the set of UTIs where `this.conformsTo(other) returns true.
+     * In other words, where this is a child of the other UTI.
+     * @return Set of UTIs that this UTI conforms to (including itself).
+     */
+    public Set<Uti> getConformances() {
+        return null;
+    }
+    
+    /**
+     * Return conforming types.
+     * This is the set of UTIs where `other.conformsTo(this)` returns true.
+     * In other words, where this is a parent of the other UTI.
+     * @return Set of UTIs that conform to this UTI (including itself).
+     */
+    public Set<Uti> getConformers() {
+        return null;
+    }
 }
