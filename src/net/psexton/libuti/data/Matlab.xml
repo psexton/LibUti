@@ -12,19 +12,19 @@
     
     <uti>
         <name>com.mathworks.matlab-code</name>
-        <suffix>m</suffix>
+        <suffix preferred="true">m</suffix>
         <conforms-to>public.source-code</conforms-to>
     </uti>
     
     <uti>
         <name>com.mathworks.matlab-data</name>
-        <suffix>mat</suffix>
+        <suffix preferred="true">mat</suffix>
         <conforms-to>public.composite-content</conforms-to>
     </uti>
     
     <uti>
         <name>com.mathworks.matlab-figure</name>
-        <suffix>fig</suffix>
+        <suffix preferred="true">fig</suffix>
         <conforms-to>public.composite-content</conforms-to>
     </uti>
     

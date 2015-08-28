@@ -13,39 +13,39 @@
     
     <uti>
         <name>public.mp3</name>
-        <suffix>mp3</suffix>
+        <suffix preferred="true">mp3</suffix>
         <conforms-to>public.audio</conforms-to>
     </uti>
     
     <uti>
         <name>public.mpeg-4-audio</name>
-        <suffix>m4a</suffix>
+        <suffix preferred="true">m4a</suffix>
         <conforms-to>public.audio</conforms-to>
     </uti>
     
     <uti>
         <name>public.aiff-audio</name>
         <suffix>aif</suffix>
-        <suffix>aiff</suffix>
+        <suffix preferred="true">aiff</suffix>
         <conforms-to>public.audio</conforms-to>
     </uti>
     
     <uti>
         <name>com.microsoft.waveform-audio</name>
-        <suffix>wav</suffix>
+        <suffix preferred="true">wav</suffix>
         <suffix>wave</suffix>
         <conforms-to>public.audio</conforms-to>
     </uti>
     
     <uti>
         <name>com.digidesign.sd2-audio</name>
-        <suffix>sd2</suffix>
+        <suffix preferred="true">sd2</suffix>
         <conforms-to>public.audio</conforms-to>
     </uti>
     
     <uti>
         <name>com.microsoft.windows-media-wma</name>
-        <suffix>wma</suffix>
+        <suffix preferred="true">wma</suffix>
         <conforms-to>public.audio</conforms-to>
         <conforms-to>com.microsoft.advanced-systems-format</conforms-to>
     </uti>

@@ -14,14 +14,14 @@
     
     <uti>
         <name>com.adobe.pdf</name>
-        <suffix>pdf</suffix>
+        <suffix preferred="true">pdf</suffix>
         <conforms-to>public.data</conforms-to>
         <conforms-to>public.composite-content</conforms-to>
     </uti>
     
     <uti>
         <name>com.adobe.postscript</name>
-        <suffix>ps</suffix>
+        <suffix preferred="true">ps</suffix>
         <conforms-to>public.data</conforms-to>
     </uti>
     
@@ -29,21 +29,21 @@
     
     <uti>
         <name>com.microsoft.windows-executable</name>
-        <suffix>exe</suffix>
+        <suffix preferred="true">exe</suffix>
         <conforms-to>public.data</conforms-to>
         <conforms-to>public.executable</conforms-to>
     </uti>
     
     <uti>
         <name>com.microsoft.windows-dynamic-link-library</name>
-        <suffix>dll</suffix>
+        <suffix preferred="true">dll</suffix>
         <conforms-to>public.data</conforms-to>
         <conforms-to>public.executable</conforms-to>
     </uti>
     
     <uti>
         <name>com.sun.java-archive</name>
-        <suffix>jar</suffix>
+        <suffix preferred="true">jar</suffix>
         <conforms-to>public.data</conforms-to>
         <conforms-to>public.executable</conforms-to>
         <conforms-to>public.archive</conforms-to>
@@ -53,26 +53,26 @@
     
     <uti>
         <name>public.shell-script</name>
-        <suffix>sh</suffix>
+        <suffix preferred="true">sh</suffix>
         <suffix>command</suffix>
         <conforms-to>public.script</conforms-to>
     </uti>
     
     <uti>
         <name>public.csh-script</name>
-        <suffix>csh</suffix>
+        <suffix preferred="true">csh</suffix>
         <conforms-to>public.shell-script</conforms-to>
     </uti>
     
     <uti>
         <name>public.python-script</name>
-        <suffix>py</suffix>
+        <suffix preferred="true">py</suffix>
         <conforms-to>public.shell-script</conforms-to>
     </uti>
     
     <uti>
         <name>public.ruby-script</name>
-        <suffix>rb</suffix>
+        <suffix preferred="true">rb</suffix>
         <suffix>rbw</suffix>
         <conforms-to>public.shell-script</conforms-to>
     </uti>

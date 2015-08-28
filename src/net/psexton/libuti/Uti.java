@@ -55,5 +55,19 @@ public class Uti {
         return UtiDb.getInstance().conformsTo(this.toString(), parent.toString());
     }
     
+    /**
+     * Returns a file suffix that maps to this UTI.
+     * If more than one suffix maps to this UTI, then the one marked as 
+     * @return String
+     * @since 1.0.0
+     */
+    public String toSuffix() {
+        // A dyn.* should map to the * part
+        if(name.startsWith("dyn."))
+            return name.substring(4);
+        else
+            return UtiDb.getInstance().preferredSuffixForUti(name);
+    }
+    
     private final String name; // e.g. "public.plain-text"
 }

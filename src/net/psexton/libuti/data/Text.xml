@@ -12,39 +12,39 @@
 
     <uti>
         <name>public.plain-text</name>
-        <suffix>txt</suffix>
+        <suffix preferred="true">txt</suffix>
         <suffix>text</suffix>
         <conforms-to>public.text</conforms-to>
     </uti>
     
     <uti>
         <name>public.rtf</name>
-        <suffix>rtf</suffix>
+        <suffix preferred="true">rtf</suffix>
         <conforms-to>public.text</conforms-to>
     </uti>
     
     <uti>
         <name>public.html</name>
         <suffix>htm</suffix>
-        <suffix>html</suffix>
+        <suffix preferred="true">html</suffix>
         <conforms-to>public.text</conforms-to>
     </uti>
     
     <uti>
         <name>public.xml</name>
-        <suffix>xml</suffix>
+        <suffix preferred="true">xml</suffix>
         <conforms-to>public.text</conforms-to>
     </uti>
     
     <uti>
         <name>public.comma-separated-values-text</name>
-        <suffix>csv</suffix>
+        <suffix preferred="true">csv</suffix>
         <conforms-to>public.text</conforms-to>
     </uti>
     
     <uti>
         <name>public.css</name>
-        <suffix>css</suffix>
+        <suffix preferred="true">css</suffix>
         <conforms-to>public.text</conforms-to>
     </uti>
     

@@ -13,20 +13,20 @@
     <!-- TAR -->
     <uti>
         <name>org.gnu.gnu-tar-archive</name>
-        <suffix>gtar</suffix>
+        <suffix preferred="true">gtar</suffix>
         <conforms-to>public.data</conforms-to>
         <conforms-to>public.archive</conforms-to>
     </uti>
     <uti>
         <name>public.tar-archive</name>
-        <suffix>tar</suffix>
+        <suffix preferred="true">tar</suffix>
         <conforms-to>org.gnu.gnu-tar-archive</conforms-to>
     </uti>
     
     <!-- ZIP -->
     <uti>
         <name>com.pkware.zip-archive</name>
-        <suffix>zip</suffix>
+        <suffix preferred="true">zip</suffix>
         <conforms-to>public.data</conforms-to>
         <conforms-to>public.archive</conforms-to>
     </uti>
@@ -34,7 +34,7 @@
     <!-- GZIP -->
     <uti>
         <name>org.gnu.gnu-zip-archive</name>
-        <suffix>gz</suffix>
+        <suffix preferred="true">gz</suffix>
         <suffix>gzip</suffix>
         <conforms-to>public.data</conforms-to>
         <conforms-to>public.archive</conforms-to>
@@ -43,7 +43,7 @@
     <!-- TARRED GZIP -->
     <uti>
         <name>org.gnu.gnu-zip-tar-archive</name>
-        <suffix>tgz</suffix>
+        <suffix preferred="true">tgz</suffix>
         <conforms-to>org.gnu.gnu-zip-archive</conforms-to>
     </uti>
     

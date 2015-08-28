@@ -126,4 +126,31 @@ public class UtiDbTest {
         assertTrue(instance.conformsTo(msPowerpoint, publicData));
         assertTrue(instance.conformsTo(msPowerpoint, publicPresentation));
     }
+    
+    @Test
+    public void testReverseMappingSingle() {
+        // UTI with a single suffix that maps to it
+        String uti = "public.tar-archive";
+        String expResult = "tar";
+        String result = instance.preferredSuffixForUti(uti);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testReverseMappingMultiple() {
+        // UTI with a multiple suffixs that maps to it
+        String uti = "public.jpeg";
+        String expResult = "jpeg";
+        String result = instance.preferredSuffixForUti(uti);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testReverseMappingNull() {
+        // UTI with no suffixs that maps to it
+        String uti = "public.audio";
+        String expResult = null;
+        String result = instance.preferredSuffixForUti(uti);
+        assertEquals(expResult, result);
+    }
 }

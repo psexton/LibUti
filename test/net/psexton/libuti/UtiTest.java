@@ -24,6 +24,33 @@ public class UtiTest {
         
         assertEquals(expResult, result);
     }
+    
+    @Test
+    public void testToSuffix() {
+        Uti instance = new Uti("public.png");
+        String expResult = "png";
+        String result = instance.toSuffix();
+        
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testToSuffixNull() {
+        Uti instance = new Uti("public.data");
+        String expResult = null;
+        String result = instance.toSuffix();
+        
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testToSuffixDyn() {
+        Uti instance = new Uti("dyn.foo");
+        String expResult = "foo";
+        String result = instance.toSuffix();
+        
+        assertEquals(expResult, result);
+    }
 
     /**
      * Test of equals method, of class Uti.

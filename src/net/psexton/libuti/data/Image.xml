@@ -13,32 +13,32 @@
     <uti>
         <name>public.jpeg</name>
         <suffix>jpg</suffix>
-        <suffix>jpeg</suffix>
+        <suffix preferred="true">jpeg</suffix>
         <conforms-to>public.image</conforms-to>
     </uti>
     
     <uti>
         <name>public.tiff</name>
         <suffix>tif</suffix>
-        <suffix>tiff</suffix>
+        <suffix preferred="true">tiff</suffix>
         <conforms-to>public.image</conforms-to>
     </uti>
     
     <uti>
         <name>public.png</name>
-        <suffix>png</suffix>
+        <suffix preferred="true">png</suffix>
         <conforms-to>public.image</conforms-to>
     </uti>
     
     <uti>
         <name>com.compuserve.gif</name>
-        <suffix>gif</suffix>
+        <suffix preferred="true">gif</suffix>
         <conforms-to>public.image</conforms-to>
     </uti>
     
     <uti>
         <name>com.microsoft.bmp</name>
-        <suffix>bmp</suffix>
+        <suffix preferred="true">bmp</suffix>
         <conforms-to>public.image</conforms-to>
     </uti>
     

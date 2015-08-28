@@ -12,21 +12,21 @@
 
     <uti>
         <name>com.apple.quicktime-movie</name>
-        <suffix>mov</suffix>
+        <suffix preferred="true">mov</suffix>
         <suffix>qt</suffix>
         <conforms-to>public.movie</conforms-to>
     </uti>
     
     <uti>
         <name>public.avi</name>
-        <suffix>avi</suffix>
+        <suffix preferred="true">avi</suffix>
         <conforms-to>public.movie</conforms-to>
     </uti>
     
     <uti>
         <name>public.mpeg</name>
         <suffix>mpg</suffix>
-        <suffix>mpeg</suffix>
+        <suffix preferred="true">mpeg</suffix>
         <suffix>m75</suffix>
         <suffix>m15</suffix>
         <conforms-to>public.movie</conforms-to>
@@ -34,19 +34,19 @@
     
     <uti>
         <name>public.mpeg-4</name>
-        <suffix>mp4</suffix>
+        <suffix preferred="true">mp4</suffix>
         <conforms-to>public.movie</conforms-to>
     </uti>
     
     <uti>
         <name>com.microsoft.advanced-systems-format</name>
-        <suffix>asf</suffix>
+        <suffix preferred="true">asf</suffix>
         <conforms-to>public.audiovisual-content</conforms-to>
     </uti>
     
     <uti>
         <name>com.microsoft.windows-media-wmv</name>
-        <suffix>wmv</suffix>
+        <suffix preferred="true">wmv</suffix>
         <conforms-to>public.movie</conforms-to>
         <conforms-to>com.microsoft.advanced-systems-format</conforms-to>
     </uti>

@@ -35,10 +35,12 @@ class UtiDb {
     // End Singleton stuff
     
     private final Map<String, String> suffixTable;
+    private final Map<String, String> reverseSuffixTable;
     private final DirectedSparseGraph<String, String> conformances;
     
     private UtiDb(boolean loadStandardData) {
         suffixTable = new HashMap<String, String>();
+        reverseSuffixTable = new HashMap<String, String>();
         conformances = new DirectedSparseGraph<String, String>();
         if(loadStandardData) {
             String[] dataFiles = {"Archive", "Audio", "Image", "Matlab", "MicrosoftOffice", "Other", "RootsAndBases", "Text", "Video"};
@@ -78,6 +80,9 @@ class UtiDb {
             // Iterate over them
             for(Object o2 : uti.getChildren("suffix")) {
                 Element suffix = (Element) o2;
+                if(suffix.getAttribute("preferred") != null && suffix.getAttribute("preferred").getBooleanValue()) {
+                    reverseSuffixTable.put(name, suffix.getText()); // Add UTI->suffix to reverseSuffixTable
+                }
                 suffixTable.put(suffix.getText(), name); // Add suffix->UTI to suffixTable
             }
             // Conformances are in <conforms-to> children
@@ -99,6 +104,18 @@ class UtiDb {
     public String utiForSuffix(String suffix) {
         if(suffixTable.containsKey(suffix))
             return suffixTable.get(suffix);
+        else
+            return null;
+    }
+    
+    /**
+     * 
+     * @param uti String form of a UTI
+     * @return Preferred file extension, or null
+     */
+    public String preferredSuffixForUti(String uti) {
+        if(reverseSuffixTable.containsKey(uti))
+            return reverseSuffixTable.get(uti);
         else
             return null;
     }
