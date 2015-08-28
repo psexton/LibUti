@@ -9,6 +9,7 @@ package net.psexton.libuti;
  * @author PSexton
  */
 public class Uti {
+    private final String name; // e.g. "public.plain-text"
     
     protected Uti(final String name) {
         this.name = name;
@@ -28,10 +29,7 @@ public class Uti {
             return false;
         }
         final Uti other = (Uti) obj;
-        if ((this.name == null) ? (other.name != null) : !this.name.equals(other.name)) {
-            return false;
-        }
-        return true;
+        return !((this.name == null) ? (other.name != null) : !this.name.equals(other.name));
     }
 
     @Override
@@ -69,5 +67,4 @@ public class Uti {
             return UtiDb.getInstance().preferredSuffixForUti(name);
     }
     
-    private final String name; // e.g. "public.plain-text"
 }

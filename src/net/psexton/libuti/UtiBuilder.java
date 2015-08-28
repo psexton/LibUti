@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  */
 public class UtiBuilder {
     private static final Logger logger = Logger.getLogger("net.psexton.libuti");
-    private UtiDb utiDb;
+    private final UtiDb utiDb;
     private final Uti PUBLIC_DATA;
     private final Uti PUBLIC_FOLDER;
     
@@ -56,7 +56,7 @@ public class UtiBuilder {
     
     /**
      * Given a file suffix, tries to determine the correct UTI.
-     * @param file File to find UTI for
+     * @param fileSuffix File extension to find UTI for
      * @return Instance of UTI, or opaque dynamic UTI if a match can not be found
      */
     public Uti fromSuffix(final String fileSuffix) {
