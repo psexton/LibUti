@@ -160,30 +160,4 @@ class UtiDb {
         return set;
     }
     
-    /**
-     * Given a layout class, returns an instance of that class constructed using
-     * the JUNG graph we use internally.
-     * @param layoutClass
-     * @return 
-     */
-    protected Layout<Integer, String> constructLayout(Class layoutClass) {
-        try {
-            Constructor ctr = layoutClass.getConstructor(Graph.class);
-            Object obj = ctr.newInstance(conformances);
-            return (Layout<Integer, String>) obj;
-        } 
-        catch (IllegalAccessException ex) {
-            throw new RuntimeException(ex);
-        }
-        catch (InstantiationException ex) {
-            throw new RuntimeException(ex);
-        }
-        catch (InvocationTargetException ex) {
-            throw new RuntimeException(ex);
-        }
-        catch (NoSuchMethodException ex) {
-            throw new RuntimeException(ex);
-        } 
-    }
-    
 }
