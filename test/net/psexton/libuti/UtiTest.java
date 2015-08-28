@@ -107,4 +107,27 @@ public class UtiTest {
         Uti nonParent = new Uti("public.movie");
         assertFalse(instance.conformsTo(nonParent));
     }
+    
+    @Test
+    public void testCompareToLess() {
+        Uti instance = new Uti("public.audio");
+        Uti other = new Uti("public.image");
+        int result = instance.compareTo(other);
+        assertTrue(result < 0);
+    }
+    
+    @Test
+    public void testCompareToMore() {
+        Uti instance = new Uti("public.foo.bar");
+        Uti other = new Uti("public.foo");
+        int result = instance.compareTo(other);
+        assertTrue(result > 0);
+    }
+    
+    @Test
+    public void testCompareToEquals() {
+        Uti instance = new Uti("com.microsoft.waveform-audio");
+        int result = instance.compareTo(instance);
+        assertTrue(result == 0);
+    }
 }

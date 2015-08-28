@@ -8,7 +8,7 @@ package net.psexton.libuti;
  * Uniform Type Identifier
  * @author PSexton
  */
-public class Uti {
+public class Uti implements Comparable<Uti> {
     private final String name; // e.g. "public.plain-text"
     
     protected Uti(final String name) {
@@ -65,6 +65,11 @@ public class Uti {
             return name.substring(4);
         else
             return UtiDb.getInstance().preferredSuffixForUti(name);
+    }
+
+    @Override
+    public int compareTo(Uti o) {
+        return this.name.compareTo(o.name);
     }
     
 }
