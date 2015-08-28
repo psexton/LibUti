@@ -48,4 +48,11 @@
         <conforms-to>public.text</conforms-to>
     </uti>
     
+    <uti>
+        <name>public.markdown</name>
+        <suffix preferred="true">md</suffix>
+        <suffix>markdown</suffix>
+        <conforms-to>public.text</conforms-to>
+    </uti>
+    
 </uti-list>
