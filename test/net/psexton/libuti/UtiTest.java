@@ -4,6 +4,8 @@
  */
 package net.psexton.libuti;
 
+import java.util.HashSet;
+import java.util.Set;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Rule;
@@ -154,5 +156,56 @@ public class UtiTest {
         Uti other = null;
         thrown.expect(NullPointerException.class);
         int result = instance.compareTo(other);
+    }
+    
+    @Test
+    public void conformancesForRoot() {
+        Uti instance = new Uti("public.item");
+        Set<Uti> expResult = new HashSet<Uti>();
+        expResult.add(instance);
+        Set<Uti> result = instance.getConformances();
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void conformancesForLeaf() {
+        Uti instance = new Uti("public.png");
+        Set<Uti> expResult = new HashSet<Uti>();
+        // self
+        expResult.add(instance);
+        // physical hierarchy
+        expResult.add(new Uti("public.image"));
+        expResult.add(new Uti("public.data"));
+        expResult.add(new Uti("public.item"));
+        // document hierarchy
+        expResult.add(new Uti("public.content"));
+        Set<Uti> result = instance.getConformances();
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void conformersForMid() {
+        Uti instance = new Uti("public.image");
+        Set<Uti> expResult = new HashSet<Uti>();
+        // self
+        expResult.add(instance);
+        // physical hierarchy
+        expResult.add(new Uti("public.png"));
+        expResult.add(new Uti("public.jpeg"));
+        expResult.add(new Uti("public.tiff"));
+        expResult.add(new Uti("com.compuserve.gif"));
+        expResult.add(new Uti("com.microsoft.bmp"));
+        Set<Uti> result = instance.getConformers();
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void conformersForLeaf() {
+        Uti instance = new Uti("public.png");
+        Set<Uti> expResult = new HashSet<Uti>();
+        // self
+        expResult.add(instance);
+        Set<Uti> result = instance.getConformers();
+        assertEquals(expResult, result);
     }
 }

@@ -4,6 +4,7 @@
  */
 package net.psexton.libuti;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -84,7 +85,11 @@ public class Uti implements Comparable<Uti> {
      * @return Set of UTIs that this UTI conforms to (including itself).
      */
     public Set<Uti> getConformances() {
-        return null;
+        Set<Uti> conformances = new HashSet<Uti>();
+        for(String strConformance : UtiDb.getInstance().conformancesFor(name)) {
+            conformances.add(new Uti(strConformance));
+        }
+        return conformances;
     }
     
     /**
@@ -94,6 +99,10 @@ public class Uti implements Comparable<Uti> {
      * @return Set of UTIs that conform to this UTI (including itself).
      */
     public Set<Uti> getConformers() {
-        return null;
+        Set<Uti> conformers = new HashSet<Uti>();
+        for(String strConformer : UtiDb.getInstance().conformersFor(name)) {
+            conformers.add(new Uti(strConformer));
+        }
+        return conformers;
     }
 }
