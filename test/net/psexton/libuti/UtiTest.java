@@ -17,6 +17,13 @@ public class UtiTest {
     
     @Rule public ExpectedException thrown= ExpectedException.none();
 
+    @Test
+    public void testNullName() {
+        thrown.expect(NullPointerException.class);
+        thrown.expectMessage("name cannot be null");
+        Uti instance = new Uti(null);
+    }
+    
     /**
      * Test of toString method, of class Uti.
      */
@@ -110,6 +117,12 @@ public class UtiTest {
         Uti instance = new Uti("public.png");
         Uti nonParent = new Uti("public.movie");
         assertFalse(instance.conformsTo(nonParent));
+    }
+    
+    @Test
+    public void testDoesNotConformToNull() {
+        Uti instance = new Uti("public.png");
+        assertFalse(instance.conformsTo(null));
     }
     
     @Test
