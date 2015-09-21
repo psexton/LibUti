@@ -161,7 +161,7 @@ public class UtiTest {
     @Test
     public void conformancesForRoot() {
         Uti instance = new Uti("public.item");
-        Set<Uti> expResult = new HashSet<Uti>();
+        Set<Uti> expResult = new HashSet<>();
         expResult.add(instance);
         Set<Uti> result = instance.getConformances();
         assertEquals(expResult, result);
@@ -170,7 +170,7 @@ public class UtiTest {
     @Test
     public void conformancesForLeaf() {
         Uti instance = new Uti("public.png");
-        Set<Uti> expResult = new HashSet<Uti>();
+        Set<Uti> expResult = new HashSet<>();
         // self
         expResult.add(instance);
         // physical hierarchy
@@ -186,7 +186,7 @@ public class UtiTest {
     @Test
     public void conformersForMid() {
         Uti instance = new Uti("public.image");
-        Set<Uti> expResult = new HashSet<Uti>();
+        Set<Uti> expResult = new HashSet<>();
         // self
         expResult.add(instance);
         // physical hierarchy
@@ -202,7 +202,7 @@ public class UtiTest {
     @Test
     public void conformersForLeaf() {
         Uti instance = new Uti("public.png");
-        Set<Uti> expResult = new HashSet<Uti>();
+        Set<Uti> expResult = new HashSet<>();
         // self
         expResult.add(instance);
         Set<Uti> result = instance.getConformers();

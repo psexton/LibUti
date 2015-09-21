@@ -160,7 +160,7 @@ public class UtiDbTest {
     @Test
     public void conformancesForRoot() {
         String uti = "public.item";
-        Set<String> expResult = new HashSet<String>();
+        Set<String> expResult = new HashSet<>();
         expResult.add(uti);
         Set<String> result = instance.conformancesFor(uti);
         assertEquals(expResult, result);
@@ -169,7 +169,7 @@ public class UtiDbTest {
     @Test
     public void conformancesForLeaf() {
         String uti = "public.png";
-        Set<String> expResult = new HashSet<String>();
+        Set<String> expResult = new HashSet<>();
         // self
         expResult.add(uti);
         // physical hierarchy
@@ -185,7 +185,7 @@ public class UtiDbTest {
     @Test
     public void conformersForMid() {
         String uti = "public.image";
-        Set<String> expResult = new HashSet<String>();
+        Set<String> expResult = new HashSet<>();
         // self
         expResult.add(uti);
         // physical hierarchy
@@ -201,7 +201,7 @@ public class UtiDbTest {
     @Test
     public void conformersForLeaf() {
         String uti = "public.png";
-        Set<String> expResult = new HashSet<String>();
+        Set<String> expResult = new HashSet<>();
         // self
         expResult.add(uti);
         Set<String> result = instance.conformersFor(uti);
