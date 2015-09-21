@@ -18,6 +18,11 @@ public class UtiBuilder {
     private final Uti PUBLIC_DATA;
     private final Uti PUBLIC_FOLDER;
     
+    /**
+     * An uninteresting standard constructor.
+     * Unknown file types will be mapped to "public.data".
+     * Folders/directories will be mapped to "public.folder".
+     */
     public UtiBuilder() {
         // Initialize base types
         PUBLIC_DATA = new Uti("public.data");
