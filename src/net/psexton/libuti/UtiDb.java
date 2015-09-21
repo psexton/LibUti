@@ -37,19 +37,16 @@ class UtiDb {
     private final DirectedSparseGraph<String, String> conformances;
     
     private UtiDb(boolean loadStandardData) {
-        suffixTable = new HashMap<String, String>();
-        reverseSuffixTable = new HashMap<String, String>();
-        conformances = new DirectedSparseGraph<String, String>();
+        suffixTable = new HashMap<>();
+        reverseSuffixTable = new HashMap<>();
+        conformances = new DirectedSparseGraph<>();
         if(loadStandardData) {
             String[] dataFiles = {"Archive", "Audio", "Image", "Matlab", "MicrosoftOffice", "Other", "RootsAndBases", "Text", "Video"};
             for (String dataFile : dataFiles) {
                 try {
                     importXmlData(this.getClass().getResourceAsStream("/net/psexton/libuti/data/" + dataFile + ".xml"));
                 } 
-                catch (IOException ex) {
-                    Logger.getLogger(UtiDb.class.getName()).log(Level.SEVERE, null, ex);
-                } 
-                catch (JDOMException ex) {
+                catch (IOException | JDOMException ex) {
                     Logger.getLogger(UtiDb.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
@@ -135,7 +132,7 @@ class UtiDb {
     }
     
     public Set<String> conformancesFor(String utiName) {
-        Set<String> set = new HashSet<String>();
+        Set<String> set = new HashSet<>();
         set.add(utiName); // always include self
         for(String successor : conformances.getSuccessors(utiName)) {
             Set<String> parentSet = conformancesFor(successor);
@@ -146,7 +143,7 @@ class UtiDb {
     }
     
     public Set<String> conformersFor(String utiName) {
-        Set<String> set = new HashSet<String>();
+        Set<String> set = new HashSet<>();
         set.add(utiName); // always include self
         for(String predecessor : conformances.getPredecessors(utiName)) {
             Set<String> childSet = conformersFor(predecessor);
