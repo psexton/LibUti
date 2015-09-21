@@ -14,6 +14,11 @@ import java.util.Set;
 public class Uti implements Comparable<Uti> {
     private final String name; // e.g. "public.plain-text"
     
+    /**
+     * Uti constructor.
+     * This should not be called directly. Use UtiBuilder instead.
+     * @param name String form of the UTI.
+     */
     protected Uti(final String name) {
         if(name == null)
             throw new NullPointerException("name cannot be null");
