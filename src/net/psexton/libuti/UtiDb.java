@@ -37,7 +37,7 @@ import org.jdom.input.SAXBuilder;
  *
  * @author psexton
  */
-class UtiDb {
+public class UtiDb {
     // Singleton stuff
     private static class SingletonHolder { public static final UtiDb instance = new UtiDb(true); }
     public static UtiDb getInstance() { return SingletonHolder.instance; }
