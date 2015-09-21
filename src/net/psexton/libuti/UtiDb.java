@@ -109,8 +109,12 @@ class UtiDb {
      * @return Name of matching UTI, or null
      */
     public String utiForSuffix(String suffix) {
-        if(suffixTable.containsKey(suffix))
-            return suffixTable.get(suffix);
+        // Normalize suffix to lowercase checking
+        // This is painfully non-I18N compatible, but it's better than nothing
+        String normalizedSuffix = suffix.toLowerCase();
+        
+        if(suffixTable.containsKey(normalizedSuffix))
+            return suffixTable.get(normalizedSuffix);
         else
             return null;
     }
