@@ -77,4 +77,13 @@
         <conforms-to>public.shell-script</conforms-to>
     </uti>
     
+    <uti>
+        <name>com.netscape.javascript-source</name>
+        <suffix preferred="true">js</suffix>
+        <suffix>jscript</suffix>
+        <suffix>javascript</suffix>
+        <conforms-to>public.source-code</conforms-to>
+        <conforms-to>public.executable</conforms-to>
+    </uti>
+    
 </uti-list>
