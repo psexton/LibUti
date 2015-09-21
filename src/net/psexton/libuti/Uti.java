@@ -66,7 +66,6 @@ public class Uti implements Comparable<Uti> {
      * Checks if this UTI conforms to another UTI.
      * @param parent The "parent" the check against
      * @return True if this conforms to parent
-     * @since 0.2.0
      */
     public boolean conformsTo(Uti parent) {
         if(parent == null) // cannot conform to null
@@ -80,7 +79,6 @@ public class Uti implements Comparable<Uti> {
      * Returns a file suffix that maps to this UTI.
      * If more than one suffix maps to this UTI, then the one marked as 
      * @return String
-     * @since 1.0.0
      */
     public String toSuffix() {
         // A dyn.* should map to the * part

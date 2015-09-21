@@ -34,12 +34,16 @@ import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
 
 /**
- *
+ * Database for UTIs
  * @author psexton
  */
 public class UtiDb {
     // Singleton stuff
     private static class SingletonHolder { public static final UtiDb instance = new UtiDb(true); }
+    /**
+     * Singleton accessor for UTI Database.
+     * @return Instance of UtiDb
+     */
     public static UtiDb getInstance() { return SingletonHolder.instance; }
     static UtiDb getCleanInstance() { return new UtiDb(false); } // used by unit tests
     // End Singleton stuff
@@ -104,7 +108,7 @@ public class UtiDb {
     }
     
     /**
-     * 
+     * Converts a file suffix to its UTI form.
      * @param suffix Three (or four or two) letter file extension
      * @return Name of matching UTI, or null
      */
@@ -120,7 +124,7 @@ public class UtiDb {
     }
     
     /**
-     * 
+     * Reverse mapping of UTI to preferred file suffix.
      * @param uti String form of a UTI
      * @return Preferred file extension, or null
      */
@@ -140,6 +144,12 @@ public class UtiDb {
         return conformances.containsVertex(utiName);
     }
     
+    /**
+     * Checks if one UTI conforms to another.
+     * @param childUti The conforming UTI.
+     * @param parentUti The UTI being conformed to.
+     * @return True if the conformance relation exists.
+     */
     public Boolean conformsTo(String childUti, String parentUti) {
         DijkstraShortestPath<String,String> alg = new DijkstraShortestPath(conformances);
         
@@ -147,6 +157,13 @@ public class UtiDb {
         return !path.isEmpty();
     }
     
+    /**
+     * Full set of conformances.
+     * Returns a Set of all UTIs that the UTI passed in conforms to 
+     * (including itself).
+     * @param utiName UTI to look up.
+     * @return Set of UTIs.
+     */
     public Set<String> conformancesFor(String utiName) {
         Set<String> set = new HashSet<>();
         set.add(utiName); // always include self
@@ -158,6 +175,13 @@ public class UtiDb {
         return set;
     }
     
+    /**
+     * Full set of conformers.
+     * Returns a Set of all UTIs that conform to the UTI passed in 
+     * (including itself).
+     * @param utiName UTI to look up.
+     * @return Set of UTIs.
+     */
     public Set<String> conformersFor(String utiName) {
         Set<String> set = new HashSet<>();
         set.add(utiName); // always include self
