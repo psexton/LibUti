@@ -123,4 +123,17 @@ public class UtiBuilderTest {
         assertEquals(expResult, result);
     }
     
+    @Test
+    public void testDynStringRoundTrip() {
+        // If we start out with an unknown file suffix, and get a "dyn.*" UTI,
+        // calling Uti#toString followed by UtiBuilder#fromString should still 
+        // work.
+        
+        String unknownSuffix = "foobar";
+        UtiBuilder instance = new UtiBuilder();
+        Uti orig = instance.fromSuffix(unknownSuffix);
+        Uti copy = instance.fromString(orig.toString());
+        assertEquals(orig, copy);
+    }
+    
 }

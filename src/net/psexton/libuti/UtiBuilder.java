@@ -96,6 +96,9 @@ public class UtiBuilder {
         if(utiDb.isUtiInDb(utiName)) {
             return new Uti(utiName);
         }
+        else if(utiName.startsWith("dyn.")) {
+            return new Uti(utiName);
+        }
         else {
             return null;
         }
