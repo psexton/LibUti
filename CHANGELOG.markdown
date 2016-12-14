@@ -2,6 +2,9 @@
 
 Version numbers are assigned according to the Semantic Versioning Specification <http://semver.org>.
 
+## Version 1.0.1 (2016-12-14):
+- Fixes problem with `UtiBuilder.fromString` and dyn UTIs ([#5](https://github.com/psexton/LibUti/issues/5))
+
 ## Version 1.0.0 (2015-09-21):
 - Rebuilt using Java 7
 - Adds support for reverse mapping UTI to file suffix ([#4](https://github.com/psexton/LibUti/issues/4))
