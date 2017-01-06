@@ -151,7 +151,7 @@ public class UtiDb {
      * @return True if the conformance relation exists.
      */
     public Boolean conformsTo(String childUti, String parentUti) {
-        DijkstraShortestPath<String,String> alg = new DijkstraShortestPath(conformances);
+        DijkstraShortestPath<String,String> alg = new DijkstraShortestPath<>(conformances);
         
         List<String> path = alg.getPath(childUti, parentUti);
         return !path.isEmpty();
