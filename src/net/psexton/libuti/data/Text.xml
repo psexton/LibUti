@@ -72,4 +72,17 @@ along with LibUti. If not, see <http://www.gnu.org/licenses/>.
         <conforms-to>public.text</conforms-to>
     </uti>
     
+    <uti>
+        <name>public.yaml</name>
+        <suffix preferred="true">yaml</suffix>
+        <suffix>yml</suffix>
+        <conforms-to>public.text</conforms-to>
+    </uti>
+    
+    <uti>
+        <name>public.json</name>
+        <suffix preferred="true">json</suffix>
+        <conforms-to>public.text</conforms-to>
+    </uti>
+    
 </uti-list>
