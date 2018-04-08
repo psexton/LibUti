@@ -2,6 +2,10 @@
 
 Version numbers are assigned according to the Semantic Versioning Specification <http://semver.org>.
 
+## Version 1.1.1 (2018-04-07)
+- Upgrade to JDOM 2
+- Switch to Maven 3 for builds
+
 ## Version 1.1.0 (2017-01-06):
 - Add JSON and YAML to the standard type database
 
