@@ -6,7 +6,7 @@
 
     <groupId>net.psexton.libuti</groupId>
     <artifactId>libuti</artifactId>
-    <version>1.1.1-SNAPSHOT</version>
+    <version>1.1.1</version>
 
     <!-- JDK7 with UTF-8 source encoding -->
     <properties>
