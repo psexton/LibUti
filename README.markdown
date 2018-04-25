@@ -3,6 +3,8 @@ LibUti Readme
 
 LibUti is a Java implementation of Apple's Uniform Type Identifier (UTI) system. For more information on UTIs, see [Apple's developer documentation](http://developer.apple.com/mac/library/documentation/FileManagement/Conceptual/understanding_utis/) or [the Wikipedia entry](http://en.wikipedia.org/wiki/Uniform_Type_Identifier).
 
+![Travis CI](https://travis-ci.org/psexton/LibUti.svg?branch=master)
+
 License
 -------
 
